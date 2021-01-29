@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <base-header />
-    <base-sidebar />
+    <base-sidebar @input="q = $event" />
     <main>
-      <router-view />
+      <router-view :q="q" />
     </main>
   </div>
 </template>
@@ -15,5 +15,10 @@ import BaseSidebar from '@/components/BaseSidebar';
 export default {
   name: 'App',
   components: { BaseSidebar, BaseHeader },
+  data() {
+    return {
+      q: null,
+    }
+  },
 }
 </script>

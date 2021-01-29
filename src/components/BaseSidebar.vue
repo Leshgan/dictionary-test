@@ -1,7 +1,11 @@
 <template>
   <aside class="sidebar">
     <div class="sidebar__search">
-      <input type="text" class="sidebar__search-input">
+      <input
+        type="text"
+        class="sidebar__search-input"
+        v-model="q"
+      >
       <search-icon class="icon sidebar__search-icon" />
     </div>
     <div class="sidebar__filter">
@@ -21,12 +25,33 @@ export default {
   components: { VCheckbox, SearchIcon },
   data() {
     return {
+      q: null,
       filter: {
         adjective: false,
         verb: false,
         noun: false,
       },
     }
+  },
+  watch: {
+    filter: {
+      deep: true,
+      handler() {
+        this.emitQuery()
+      }
+    },
+    q(val, oldVal) {
+      (val !== oldVal) && this.emitQuery(val);
+    }
+  },
+  methods: {
+    emitQuery(q = this.q) {
+      const query = {
+        q,
+        filter: this.filter,
+      }
+      this.$emit('input', query);
+    },
   },
 }
 </script>

@@ -13,6 +13,11 @@ import VWord from '@/components/VWord';
 
 export default {
   name: 'Home',
+  props: {
+    q: {
+      type: Object,
+    }
+  },
   components: { VWord },
   data() {
     return {
@@ -48,6 +53,14 @@ export default {
       ],
     };
   },
+  watch: {
+    q: {
+      deep: true,
+      handler(val, oldVal) {
+        console.log('HOME', val, oldVal);
+      }
+    }
+  }
 }
 </script>
 
