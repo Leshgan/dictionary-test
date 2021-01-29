@@ -1,5 +1,7 @@
 @import "constants";
 @import "header";
+@import "sidebar";
+@import "list";
 
 body, #app {
   background-color: $main-background;
@@ -12,11 +14,9 @@ body, #app {
   grid-template-areas:
     "header header"
     "aside main";
-  grid-template-columns:  1fr 4fr;
-  grid-template-rows: 1fr 4fr;
+  grid-template-columns:  2fr 5fr;
+  grid-template-rows: 1fr 5fr;
   grid-gap: 5px;
-  height: 100vh;
-  //margin: 0;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,17 +34,26 @@ header {
   grid-area: header;
   flex-direction: row;
   justify-content: space-between;
-
+  min-height: 60px;
 }
 
 aside {
   grid-area: aside;
-  align-items: flex-start;
+  flex-direction: column;
 }
 
 main {
   grid-area: main;
   align-items: flex-start;
+}
+
+.icon {
+  width: 20px;
+}
+
+.main-title {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 @media (max-width: 411px) {

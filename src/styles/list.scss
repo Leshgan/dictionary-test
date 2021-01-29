@@ -1,0 +1,71 @@
+.list {
+
+  width: 100%;
+
+  &__item {
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+
+    &_first {
+      display: grid;
+      grid-template-areas: "name speech value icon";
+      grid-template-columns: 1fr 1fr 6fr 1fr;
+      grid-template-rows: 1fr;
+      grid-gap: 5px;
+
+      text-align: left;
+
+      &_word {
+        grid-area: name;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 10px;
+      }
+
+      &_part_of_speech {
+        grid-area: speech;
+      }
+
+      &_value {
+        grid-area: value;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &_icon {
+        display: flex;
+        justify-content: flex-end;
+
+        & .star-icon {
+          color: $main-blue;
+        }
+      }
+
+      //&.show-more {
+      //  grid-template-areas:
+      //    'name speech value'
+      //    'decription decription decription decription';
+      //  grid-template-rows: 1fr 2fr;
+      //}
+    }
+
+    &_description {
+      display: inline-block;
+      margin-top: 10px;
+      text-align: justify;
+    }
+
+    &_star-button {
+      background-color: transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+    }
+  }
+}

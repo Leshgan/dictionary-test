@@ -1,5 +1,7 @@
 <template>
-  <div>Favorites</div>
+  <div>
+    <h1 class="main-title">Starred Words</h1>
+  </div>
 </template>
 
 <script>
