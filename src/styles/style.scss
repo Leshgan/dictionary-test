@@ -1,0 +1,63 @@
+@import "constants";
+@import "header";
+
+body, #app {
+  background-color: $main-background;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "aside main";
+  grid-template-columns:  1fr 4fr;
+  grid-template-rows: 1fr 4fr;
+  grid-gap: 5px;
+  height: 100vh;
+  //margin: 0;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+header, aside, main, footer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+header {
+  grid-area: header;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+aside {
+  grid-area: aside;
+  align-items: flex-start;
+}
+
+main {
+  grid-area: main;
+  align-items: flex-start;
+}
+
+@media (max-width: 411px) {
+  #app {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "aside"
+      "main";
+    grid-template-columns:  1fr;
+    grid-template-rows: 1fr 2fr 4fr;
+    grid-gap: 5px;
+    height: 100vh;
+    margin: 0;
+  }
+}
