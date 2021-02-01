@@ -1,6 +1,6 @@
 import { SET } from '@/utils/store';
 import { getWords } from '@/services/api';
-import { sortWords } from '@/utils';
+import { filterWords, sortWords } from '@/utils';
 
 const state = () => ({
   query: null,
@@ -32,10 +32,13 @@ const actions = {
     commit('SET', { type: 'error', value: null }, { root: true });
     commit('SET', { type: 'loading', value: true }, { root: true });
     try {
-      const { q } = payload;
-      const { data } = await getWords(q);
-      data.sort(sortWords);
-      commit('SET', { type: 'words', value: data.slice(0, 10) }, { root: true });
+      const { q, filter } = payload;
+      let { data } = await getWords(q);
+      // sort, filter and taking first 10 words
+      data = filterWords(
+        data.sort(sortWords), filter
+      ).slice(0, 10);
+      commit('SET', { type: 'words', value: data }, { root: true });
     } catch (e) {
       commit('SET', { type: 'error', value: e.message }, { root: true });
     } finally {
