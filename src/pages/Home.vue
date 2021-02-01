@@ -10,10 +10,12 @@
 
 <script>
 import VWord from '@/components/VWord';
+import { filter } from '@/mixins/filter';
 
 export default {
   name: 'Home',
   components: { VWord },
+  mixins: [ filter ],
   data() {
     return {
       words: [

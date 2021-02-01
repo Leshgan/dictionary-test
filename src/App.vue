@@ -15,5 +15,10 @@ import BaseSidebar from '@/components/BaseSidebar';
 export default {
   name: 'App',
   components: { BaseSidebar, BaseHeader },
+  data() {
+    return {
+      q: null,
+    }
+  },
 }
 </script>
