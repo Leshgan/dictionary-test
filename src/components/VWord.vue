@@ -15,7 +15,7 @@
       <span class="list__item_first_icon">
         <button
           class="list__item_star-button"
-          @click.stop="toggleFavorite"
+          @click.stop="toggle(word)"
         >
           <star-icon v-if="!inFavorites" class="icon star-icon" />
           <star-selected-icon v-else class="icon star-icon" />
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import StarSelectedIcon from '@/assets/star-selected.svg';
 import StarIcon from '@/assets/star.svg';
 import { transformTag } from '@/utils';
@@ -53,7 +54,7 @@ export default {
   },
   computed: {
     inFavorites() {
-      return false;
+      return this.$store.getters['favorites/inFavorites'](this.word);
     },
     speechPart() {
       return this.word.tags && this.word.tags.map(transformTag).join(', ');
@@ -69,9 +70,9 @@ export default {
     },
   },
   methods: {
-    toggleFavorite() {
-      //
-    }
+    ...mapActions('favorites', {
+      toggle: 'toggleAction',
+    }),
   },
 }
 </script>
