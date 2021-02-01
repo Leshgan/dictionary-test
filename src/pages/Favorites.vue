@@ -5,8 +5,11 @@
 </template>
 
 <script>
+import { filter } from '@/mixins/filter';
+
 export default {
-  name: 'Favorites'
+  name: 'Favorites',
+  mixins: [ filter ],
 }
 </script>
 

@@ -10,15 +10,12 @@
 
 <script>
 import VWord from '@/components/VWord';
+import { filter } from '@/mixins/filter';
 
 export default {
   name: 'Home',
-  props: {
-    q: {
-      type: Object,
-    }
-  },
   components: { VWord },
+  mixins: [ filter ],
   data() {
     return {
       words: [
@@ -53,14 +50,6 @@ export default {
       ],
     };
   },
-  watch: {
-    q: {
-      deep: true,
-      handler(val, oldVal) {
-        console.log('HOME', val, oldVal);
-      }
-    }
-  }
 }
 </script>
 

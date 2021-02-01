@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import { favorites } from '@/store/favorites';
 import { SET } from '@/utils/store';
 import { getWords } from "@/services/api";
+import { filter } from '@/store/filter';
 
 Vue.use(Vuex);
 
@@ -38,5 +39,5 @@ export default new Vuex.Store({
   getters,
   mutations,
   actions,
-  modules: { favorites },
+  modules: { favorites, filter },
 });

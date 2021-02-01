@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <base-header />
-    <base-sidebar @input="q = $event" />
+    <base-sidebar />
     <main>
-      <router-view :q="q" />
+      <router-view />
     </main>
   </div>
 </template>
