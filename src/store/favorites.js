@@ -1,11 +1,19 @@
-import { sortWords } from "@/utils";
+// import { sortWords } from "@/utils";
+
+import { filterWords, searchWord } from "@/utils";
 
 const state = () => ({
   favorites: JSON.parse(localStorage.getItem('favorites')) || [],
 });
 
 const getters = {
-  favorites: s => s.favorites.sort(sortWords),
+  favorites: (s, _getters, rootState) => {
+    const { query, filter } = rootState.filter;
+    if (query) {
+      return filterWords(searchWord(query, s.favorites), filter);
+    }
+    return s.favorites;
+  },
   inFavorites: s => word => s.favorites.findIndex(w => w.word === word.word) > -1,
 };
 

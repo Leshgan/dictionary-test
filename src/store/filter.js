@@ -1,6 +1,6 @@
 import { SET } from '@/utils/store';
 import { getWords } from '@/services/api';
-import { filterWords, sortWords } from '@/utils';
+import { filterWords, searchWord, sortWords } from '@/utils';
 
 const state = () => ({
   query: null,
@@ -11,7 +11,16 @@ const state = () => ({
   },
 });
 
-const getters = {};
+const getters = {
+  favorites: (s, _getters, rootState) => {
+    const { query, filter: filt } = s;
+    let { favorites } = rootState.favorites;
+    if (query) {
+      favorites = filterWords(searchWord(query, favorites), filt);
+    }
+    return favorites;
+  }
+};
 
 const mutations = {
   SET,
@@ -45,8 +54,11 @@ const actions = {
       commit('SET', { type: 'loading', value: false }, { root: true });
     }
   },
-  Favorites(context, payload) {
-    console.log('Favorites action', payload);
+  Favorites() {
+    // no need
+  },
+  clear({ commit }) {
+    commit('SET', { type: 'query', value: null });
   }
 };
 

@@ -12,6 +12,8 @@ export const sortWords = (a, b) => {
   return result;
 };
 
+export const searchWord = (q, words) => words.filter(({ word }) => word && word.indexOf(q) === 0);
+
 const mapFilter = ([val]) => {
   switch (val) {
     case 'adjective':
