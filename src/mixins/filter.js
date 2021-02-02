@@ -32,7 +32,7 @@ export const filter = {
     }
   },
   created() {
-    // if query string was saved to localStorage
+    // if query string was saved to localStorage, restore data from API
     if (this.query) {
       this.search();
     }

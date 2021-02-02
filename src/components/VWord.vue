@@ -54,7 +54,6 @@ export default {
   data() {
     return {
       showMore: false,
-
     };
   },
   computed: {
@@ -82,6 +81,3 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>

@@ -10,20 +10,19 @@
     </div>
     <div v-if="query" class="sidebar__filter">
       <v-checkbox
-        v-for="item in Object.entries(filter)"
-        :key="item[0]"
-        :value="item[1]"
-        @input="setFilter(item[0], $event)"
-        :label="item[0]"
+        v-for="(item, index) in filter"
+        :key="`${item.key}-${index}`"
+        :value="item.value"
+        @input="setFilter(item.key, $event)"
+        :label="item.key"
       />
     </div>
   </aside>
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import SearchIcon from '@/assets/search.svg';
-import VCheckbox from "@/components/VCheckbox";
+import VCheckbox from '@/components/VCheckbox';
 
 export default {
   name: 'BaseSidebar',
@@ -37,9 +36,12 @@ export default {
         this.$store.commit('filter/SET', { type: 'query', value, save: true });
       }
     },
-    ...mapState('filter', {
-      filter: state => state.filter,
-    }),
+    filter() {
+      const filter = this.$store.state.filter.filter || {};
+      return Object
+        .entries(filter)
+        .map(([key, value]) => ({ key, value }));
+    },
   },
   methods: {
     setFilter(prop, value) {

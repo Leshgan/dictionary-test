@@ -1,7 +1,9 @@
 <template>
   <header>
     <nav>
-      <router-link :to="{ name: 'Home' }" exact><span>Word Keeper</span></router-link>
+      <router-link :to="{ name: 'Home' }" exact>
+        <span>Word Keeper</span>
+      </router-link>
       <router-link :to="{ name: 'Favorites' }">
         <star-icon class="icon star-icon"/>
         Starred Words
@@ -18,13 +20,5 @@ export default {
   components: {
     StarIcon,
   },
-  data() {
-    return {
-    }
-  }
 }
 </script>
-
-<style scoped>
-
-</style>

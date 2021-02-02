@@ -4,8 +4,8 @@
     <div class="list">
       <draggable v-model="words">
         <v-word
-          v-for="word in words"
-          :key="word.word"
+          v-for="(word, index) in words"
+          :key="`${word.word}-${index}`"
           :word="word"
           draggable
         />

@@ -1,13 +1,13 @@
-import { getFromLocalStorage, SET } from '@/utils/store';
+import { getBoolFromLocalStorage, getStringFromLocalStorage, SET } from '@/utils/store';
 import { getWords } from '@/services/api';
 import { filterWords, searchWord, sortWords } from '@/utils';
 
 const state = () => ({
-  query: getFromLocalStorage('query') || '',
+  query: getStringFromLocalStorage('query', ''),
   filter: {
-    adjective: getFromLocalStorage('adjective') === 'true' || false,
-    verb: getFromLocalStorage('verb') === 'true' || false,
-    noun: getFromLocalStorage('noun') === 'true' || false,
+    adjective: getBoolFromLocalStorage('adjective'),
+    verb: getBoolFromLocalStorage('verb'),
+    noun: getBoolFromLocalStorage('noun'),
   },
 });
 
@@ -60,7 +60,7 @@ const actions = {
     // no need
   },
   clear({ commit }) {
-    commit('SET', { type: 'query', value: null, save: true });
+    commit('SET', { type: 'query', value: '', save: true });
     commit('filter', { prop: 'adjective', value: false });
     commit('filter', { prop: 'verb', value: false });
     commit('filter', { prop: 'noun', value: false });
