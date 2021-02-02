@@ -2,7 +2,10 @@
   <div>
     <h1 class="main-title">Starred Words</h1>
     <div class="list">
-      <draggable v-model="words">
+      <draggable
+        v-model="words"
+        :options="{ handle: '.list__item_first_burger' }"
+      >
         <v-word
           v-for="(word, index) in words"
           :key="`${word.word}-${index}`"
