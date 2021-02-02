@@ -1,13 +1,13 @@
-import { SET } from '@/utils/store';
+import { getFromLocalStorage, SET } from '@/utils/store';
 import { getWords } from '@/services/api';
 import { filterWords, searchWord, sortWords } from '@/utils';
 
 const state = () => ({
-  query: null,
+  query: getFromLocalStorage('query') || '',
   filter: {
-    adjective: false,
-    verb: false,
-    noun: false,
+    adjective: getFromLocalStorage('adjective') === 'true' || false,
+    verb: getFromLocalStorage('verb') === 'true' || false,
+    noun: getFromLocalStorage('noun') === 'true' || false,
   },
 });
 
@@ -25,7 +25,7 @@ const getters = {
 const mutations = {
   SET,
   filter(s, payload) {
-    SET(s.filter, { type: payload.prop, value: payload.value });
+    SET(s.filter, { type: payload.prop, value: payload.value, save: true });
   },
 };
 
@@ -60,7 +60,10 @@ const actions = {
     // no need
   },
   clear({ commit }) {
-    commit('SET', { type: 'query', value: null });
+    commit('SET', { type: 'query', value: null, save: true });
+    commit('filter', { prop: 'adjective', value: false });
+    commit('filter', { prop: 'verb', value: false });
+    commit('filter', { prop: 'noun', value: false });
   }
 };
 

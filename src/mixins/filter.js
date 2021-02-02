@@ -31,6 +31,17 @@ export const filter = {
       }
     }
   },
+  created() {
+    // if query string was saved to localStorage
+    if (this.query) {
+      this.search();
+    }
+  },
+  async beforeRouteLeave(to, from, next) {
+    // clear search to disable unnecessary filtering
+    await this.$store.dispatch('filter/clear');
+    next();
+  },
   methods: {
     search() {
       if (this.$options.name) {

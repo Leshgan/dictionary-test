@@ -34,7 +34,7 @@ export default {
         return this.$store.state.filter.query;
       },
       set(value) {
-        this.$store.commit('filter/SET', { type: 'query', value });
+        this.$store.commit('filter/SET', { type: 'query', value, save: true });
       }
     },
     ...mapState('filter', {

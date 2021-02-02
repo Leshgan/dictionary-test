@@ -29,7 +29,6 @@ export default {
         return this.$store.getters['favorites/favorites'];
       },
       set(value) {
-        console.log(value);
         this.$store.commit('favorites/SET_FAVORITES', value);
       },
     },
