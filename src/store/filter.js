@@ -41,12 +41,14 @@ const actions = {
     commit('SET', { type: 'error', value: null }, { root: true });
     commit('SET', { type: 'loading', value: true }, { root: true });
     try {
-      const { q, filter } = payload;
-      let { data } = await getWords(q);
+      const { q, filter: filterSidebar } = payload;
+      let { data } = q ? await getWords(q) : { data: null };
       // sort, filter and taking first 10 words
-      data = filterWords(
-        data.sort(sortWords), filter
-      ).slice(0, 10);
+      data = data
+        ? filterWords(
+          data.sort(sortWords), filterSidebar
+        ).slice(0, 10)
+        : data;
       commit('SET', { type: 'words', value: data }, { root: true });
     } catch (e) {
       commit('SET', { type: 'error', value: e.message }, { root: true });
