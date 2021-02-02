@@ -1,6 +1,9 @@
-// import { sortWords } from "@/utils";
+import { filterWords, searchWord } from '@/utils';
+import { SET } from '@/utils/store';
 
-import { filterWords, searchWord } from "@/utils";
+const saveFavorites = items => {
+  localStorage.setItem('favorites', JSON.stringify(items));
+}
 
 const state = () => ({
   favorites: JSON.parse(localStorage.getItem('favorites')) || [],
@@ -18,6 +21,11 @@ const getters = {
 };
 
 const mutations = {
+  SET_FAVORITES(s, payload) {
+    SET(s, { type: 'favorites', value: payload });
+    saveFavorites(payload);
+  },
+  SET,
   TOGGLE(s, payload) {
     const wordIndex = s.favorites.findIndex(w => w.word === payload.word);
     if (wordIndex > -1) {
@@ -27,7 +35,7 @@ const mutations = {
       // add item
       s.favorites.push(payload);
     }
-    localStorage.setItem('favorites', JSON.stringify(s.favorites));
+    saveFavorites(s.favorites);
   }
 };
 

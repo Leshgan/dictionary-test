@@ -5,8 +5,9 @@
   >
     <div
       class="list__item_first"
-      :class="{'show-more': showMore}"
+      :class="{'show-more': showMore, 'draggable': draggable}"
     >
+      <span class="list__item_first_burger" v-if="draggable">&#9776;</span>
       <span class="list__item_first_word">{{ word.word }}</span>
       <span class="list__item_first_part_of_speech">{{ speechPart }}</span>
       <span class="list__item_first_value">
@@ -43,6 +44,10 @@ export default {
     word: {
       type: Object,
       required: true,
+    },
+    draggable: {
+      type: Boolean,
+      default: false,
     }
   },
   components: { StarIcon, StarSelectedIcon },

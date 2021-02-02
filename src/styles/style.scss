@@ -15,7 +15,7 @@ body, #app {
     "header header"
     "aside main";
   grid-template-columns:  2fr 5fr;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 70px 5fr;
   grid-gap: 5px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -54,6 +54,7 @@ main {
 .main-title {
   font-size: 25px;
   font-weight: bold;
+  margin: 10px 0;
 }
 
 @media (max-width: 411px) {

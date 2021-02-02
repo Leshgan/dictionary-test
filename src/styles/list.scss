@@ -14,7 +14,7 @@
       grid-template-columns: 1fr 1fr 6fr 1fr;
       grid-template-rows: 1fr;
       grid-gap: 5px;
-
+      align-items: center;
       text-align: left;
 
       &_word {
@@ -38,6 +38,7 @@
 
       &_icon {
         display: flex;
+        grid-area: icon;
         justify-content: flex-end;
 
         & .star-icon {
@@ -45,12 +46,17 @@
         }
       }
 
-      //&.show-more {
-      //  grid-template-areas:
-      //    'name speech value'
-      //    'decription decription decription decription';
-      //  grid-template-rows: 1fr 2fr;
-      //}
+      &_burger {
+        grid-area: burger;
+        display: flex;
+        cursor: pointer;
+      }
+
+      &.draggable {
+        grid-template-areas: "burger name speech value icon";
+        grid-template-columns: 0.5fr 1fr 1fr 5fr 1fr;
+      }
+
     }
 
     &_description {
