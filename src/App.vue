@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import BaseHeader from '@/components/BaseHeader';
 import BaseSidebar from '@/components/BaseSidebar';
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
@@ -21,7 +21,7 @@ export default {
       loading: state => state.loading,
     }),
   },
-}
+};
 </script>
 
 <style scoped>

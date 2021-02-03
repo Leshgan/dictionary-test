@@ -20,5 +20,5 @@ export default {
   components: {
     StarIcon,
   },
-}
+};
 </script>

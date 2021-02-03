@@ -1,7 +1,7 @@
+import { SET } from '@/utils/store';
 import Vue from 'vue';
 import Vuex from 'vuex';
 import { favorites } from '@/store/favorites';
-import { SET } from '@/utils/store';
 import { filter } from '@/store/filter';
 
 Vue.use(Vuex);

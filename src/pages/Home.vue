@@ -9,22 +9,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import VWord from '@/components/VWord';
 import { filter } from '@/mixins/filter';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Home',
   components: { VWord },
-  mixins: [ filter ],
+  mixins: [filter],
   computed: {
     ...mapState({
       words: state => state.words,
     }),
   },
-}
+};
 </script>
-
-<style scoped>
-
-</style>

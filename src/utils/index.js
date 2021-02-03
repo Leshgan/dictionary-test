@@ -23,7 +23,7 @@ const mapFilter = ([val]) => {
     case 'verb':
       return 'v';
     default:
-      return null
+      return null;
   }
 };
 
@@ -36,7 +36,7 @@ export const transformTag = tag => {
     case 'v':
       return 'verb';
     default:
-      return tag
+      return tag;
   }
 };
 

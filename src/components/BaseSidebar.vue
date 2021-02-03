@@ -34,7 +34,7 @@ export default {
       },
       set(value) {
         this.$store.commit('filter/SET', { type: 'query', value, save: true });
-      }
+      },
     },
     filter() {
       const filter = this.$store.state.filter.filter || {};
@@ -46,11 +46,7 @@ export default {
   methods: {
     setFilter(prop, value) {
       this.$store.commit('filter/filter', { prop, value });
-    }
+    },
   },
-}
+};
 </script>
-
-<style scoped>
-
-</style>

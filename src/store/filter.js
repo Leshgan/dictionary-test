@@ -1,6 +1,6 @@
-import { getBoolFromLocalStorage, getStringFromLocalStorage, SET } from '@/utils/store';
-import { getWords } from '@/services/api';
+import { SET, getBoolFromLocalStorage, getStringFromLocalStorage } from '@/utils/store';
 import { filterWords, searchWord, sortWords } from '@/utils';
+import { getWords } from '@/services/api';
 
 const state = () => ({
   query: getStringFromLocalStorage('query', ''),
@@ -19,7 +19,7 @@ const getters = {
       favorites = filterWords(searchWord(query, favorites), filt);
     }
     return favorites;
-  }
+  },
 };
 
 const mutations = {
@@ -46,7 +46,7 @@ const actions = {
       // sort, filter and taking first 10 words
       data = data
         ? filterWords(
-          data.sort(sortWords), filterSidebar
+          data.sort(sortWords), filterSidebar,
         ).slice(0, 10)
         : data;
       commit('SET', { type: 'words', value: data }, { root: true });
@@ -64,7 +64,7 @@ const actions = {
     commit('filter', { prop: 'adjective', value: false });
     commit('filter', { prop: 'verb', value: false });
     commit('filter', { prop: 'noun', value: false });
-  }
+  },
 };
 
 export const filter = {

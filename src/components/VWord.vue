@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import StarSelectedIcon from '@/assets/star-selected.svg';
 import StarIcon from '@/assets/star.svg';
+import StarSelectedIcon from '@/assets/star-selected.svg';
+import { mapActions } from 'vuex';
 import { transformTag } from '@/utils';
 
 export default {
@@ -48,7 +48,7 @@ export default {
     draggable: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   components: { StarIcon, StarSelectedIcon },
   data() {
@@ -70,7 +70,7 @@ export default {
       return this.showMore && this.word.defs.length > 1
         ? this.word.defs.map(def => def.split('\t'))
           .map(([tag, d]) => [transformTag(tag), d].join(', '))
-        : [ this.word.defs[0].split('\t')[1] ];
+        : [this.word.defs[0].split('\t')[1]];
     },
   },
   methods: {
@@ -78,6 +78,5 @@ export default {
       toggle: 'toggleAction',
     }),
   },
-}
+};
 </script>
-

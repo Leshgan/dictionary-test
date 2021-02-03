@@ -1,5 +1,5 @@
-import { mapState } from 'vuex';
 import debounce from 'lodash.debounce';
+import { mapState } from 'vuex';
 
 export const filter = {
   data() {
@@ -10,12 +10,12 @@ export const filter = {
           filter: this.filter,
         });
       }, 300),
-    }
+    };
   },
   computed: {
     ...mapState('filter', {
-      'query': state => state.query,
-      'filter': state => state.filter,
+      query: state => state.query,
+      filter: state => state.filter,
     }),
   },
   watch: {
@@ -28,8 +28,8 @@ export const filter = {
       deep: true,
       handler() {
         this.search();
-      }
-    }
+      },
+    },
   },
   created() {
     // if query string was saved to localStorage, restore data from API
@@ -45,8 +45,8 @@ export const filter = {
   methods: {
     search() {
       if (this.$options.name) {
-        this.debounce()
+        this.debounce();
       }
-    }
-  }
+    },
+  },
 };

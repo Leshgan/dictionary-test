@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable';
 import VWord from '@/components/VWord';
+import draggable from 'vuedraggable';
 import { filter } from '@/mixins/filter';
 
 export default {
   name: 'Favorites',
   components: { VWord, draggable },
-  mixins: [ filter ],
+  mixins: [filter],
   computed: {
     words: {
       get() {
@@ -36,9 +36,5 @@ export default {
       },
     },
   },
-}
+};
 </script>
-
-<style scoped>
-
-</style>

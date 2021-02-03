@@ -1,9 +1,9 @@
+import { SET, getObjectFromLocalStorage } from '@/utils/store';
 import { filterWords, searchWord } from '@/utils';
-import { getObjectFromLocalStorage, SET } from '@/utils/store';
 
 const saveFavorites = items => {
   localStorage.setItem('favorites', JSON.stringify(items));
-}
+};
 
 const state = () => ({
   favorites: getObjectFromLocalStorage('favorites', []),
@@ -36,13 +36,13 @@ const mutations = {
       s.favorites.push(payload);
     }
     saveFavorites(s.favorites);
-  }
+  },
 };
 
 const actions = {
   toggleAction: ({ commit }, payload) => {
     commit('TOGGLE', payload);
-  }
+  },
 };
 
 export const favorites = {
@@ -51,4 +51,4 @@ export const favorites = {
   getters,
   mutations,
   actions,
-}
+};

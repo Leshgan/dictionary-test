@@ -1,16 +1,16 @@
-import Vue from 'vue'
-import App from './App.vue'
+import 'reset-css';
+import './services/axios';
+import './styles/style.scss';
+import Vue from 'vue';
+// eslint-disable-next-line sort-imports
+import App from './App.vue';
 import router from './router';
 import store from './store';
-import './services/axios';
 
-import 'reset-css';
-import './styles/style.scss'
-
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');
