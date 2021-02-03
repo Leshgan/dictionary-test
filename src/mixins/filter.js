@@ -1,11 +1,12 @@
+import { mapActions, mapState } from 'vuex';
 import debounce from 'lodash.debounce';
-import { mapState } from 'vuex';
 
 export const filter = {
   data() {
     return {
       debounce: debounce(async () => {
-        await this.$store.dispatch(`filter/${this.$options.name}`, {
+        // call mapped action
+        await this[this.$options.name]({
           q: this.query,
           filter: this.filter,
         });
@@ -43,6 +44,10 @@ export const filter = {
     next();
   },
   methods: {
+    ...mapActions('filter', {
+      Home: 'Home',
+      Favorites: 'Favorites',
+    }),
     search() {
       if (this.$options.name) {
         this.debounce();

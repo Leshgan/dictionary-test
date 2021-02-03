@@ -3,7 +3,8 @@
     <h1 class="main-title">Starred Words</h1>
     <div class="list">
       <draggable
-        v-model="words"
+        :value="words"
+        @input="setWords"
         :options="{ handle: '.list__item_first_burger' }"
       >
         <v-word
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex';
 import VWord from '@/components/VWord';
 import draggable from 'vuedraggable';
 import { filter } from '@/mixins/filter';
@@ -27,14 +29,14 @@ export default {
   components: { VWord, draggable },
   mixins: [filter],
   computed: {
-    words: {
-      get() {
-        return this.$store.getters['favorites/favorites'];
-      },
-      set(value) {
-        this.$store.commit('favorites/SET_FAVORITES', value);
-      },
-    },
+    ...mapGetters('favorites', {
+      words: 'favorites',
+    }),
+  },
+  methods: {
+    ...mapMutations('favorites', {
+      setWords: 'SET_FAVORITES',
+    }),
   },
 };
 </script>
