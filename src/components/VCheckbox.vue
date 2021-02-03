@@ -33,6 +33,7 @@ export default {
 
 <style scoped lang="scss">
   @import "src/styles/colors";
+  @import "src/styles/fonts";
 
   .v-checkbox-wrapper {
     width: 100%;
@@ -44,7 +45,7 @@ export default {
       position: relative;
       margin-bottom: 12px;
       cursor: pointer;
-      font-size: 22px;
+      font-size: $checkbox-label-font-size;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;

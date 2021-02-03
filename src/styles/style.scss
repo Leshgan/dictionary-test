@@ -3,6 +3,7 @@
 @import "header";
 @import "sidebar";
 @import "list";
+@import "fonts";
 
 body, #app {
   background-color: $main-background;
@@ -18,7 +19,7 @@ body, #app {
   grid-template-columns:  2fr 5fr;
   grid-template-rows: 70px 5fr;
   grid-gap: 5px;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: $main-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -53,8 +54,8 @@ main {
 }
 
 .main-title {
-  font-size: 25px;
-  font-weight: bold;
+  font-size: $title-font-size;
+  font-weight: $title-font-weight;
   margin: 10px 0;
 }
 

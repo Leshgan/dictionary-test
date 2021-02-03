@@ -1,5 +1,6 @@
 @import "constants";
 @import "colors";
+@import "fonts";
 
 nav {
   width: 100%;
@@ -14,8 +15,8 @@ nav {
 
   a {
     color: $link-color;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: $header-font-size;
+    font-weight: $header-font-weight;
     text-decoration: none;
     display: flex;
     align-items: flex-start;

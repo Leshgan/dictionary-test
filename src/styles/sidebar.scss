@@ -1,5 +1,6 @@
 @import "constants";
 @import "colors";
+@import "fonts";
 
 .sidebar {
   background-color: $sidebar-bg-color;
@@ -22,7 +23,7 @@
       padding-left: 10px;
       border: none;
       background-color: $search-input-bg-color;
-      font-size: 20px;
+      font-size: $search-input-font-size;
 
       &:focus {
         outline: none;
