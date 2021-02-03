@@ -1,7 +1,8 @@
 @import "constants";
+@import "colors";
 
 .sidebar {
-  background-color: #eee;
+  background-color: $sidebar-bg-color;
   border-radius: $border-radius;
   margin: 10px;
   padding: 15px;
@@ -12,7 +13,7 @@
     position: relative;
     width: 100%;
     height: 60px;
-    background-color: white;
+    background-color: $search-input-bg-color;
     border-radius: 5px;
     border: 1px solid $main-blue;
 
@@ -20,7 +21,7 @@
       width: 80%;
       padding-left: 10px;
       border: none;
-      background-color: white;
+      background-color: $search-input-bg-color;
       font-size: 20px;
 
       &:focus {
@@ -29,7 +30,7 @@
     }
 
     &-icon {
-      color: #ccc;
+      color: $search-icon-color;
       position: absolute;
       right: 10px;
       margin: 0 5px;

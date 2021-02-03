@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "src/styles/constants";
+  @import "src/styles/colors";
 
   .v-checkbox-wrapper {
     width: 100%;
@@ -67,13 +67,13 @@ export default {
           height: 20px;
           flex-shrink: 0;
           flex-grow: 0;
-          border: 1px solid #adb5bd;
+          border: 1px solid $checkbox-border-color;
           border-radius: 0.25em;
           margin-right: 0.5em;
           background-repeat: no-repeat;
           background-position: center center;
           background-size: 50% 50%;
-          background-color: white;
+          background-color: $search-input-bg-color;
         }
       }
 
