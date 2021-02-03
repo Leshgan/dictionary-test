@@ -10,12 +10,14 @@ const state = () => ({
 });
 
 const getters = {
-  favorites: (s, _getters, rootState) => {
+  favorites: ({ favorites }, _getters, rootState) => {
     const { query, filter } = rootState.filter;
-    if (query) {
-      return filterWords(searchWord(query, s.favorites), filter);
-    }
-    return s.favorites;
+    return filterWords(
+      query
+        ? searchWord(query, favorites)
+        : favorites,
+      filter,
+    );
   },
   inFavorites: s => word => s.favorites.findIndex(w => w.word === word.word) > -1,
 };

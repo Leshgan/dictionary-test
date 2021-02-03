@@ -8,7 +8,7 @@ module.exports = {
     '@vue/airbnb',
   ],
   rules: {
-    'no-console': 'error',
+    'no-console': 'warn',
     'no-debugger': 'error',
     'arrow-parens': ['error', 'as-needed'],
     'no-underscore-dangle': 'off',

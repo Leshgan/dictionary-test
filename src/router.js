@@ -8,6 +8,7 @@ const routes = [
     path: '/favorites',
     name: 'Favorites',
     component: () => import(/* webpackChunkName: "Favorites" */ './pages/Favorites'),
+    meta: { filterVisible: true },
   },
   {
     path: '/',

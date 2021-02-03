@@ -8,7 +8,7 @@
       >
       <search-icon class="icon sidebar__search-icon" />
     </div>
-    <div v-if="query" class="sidebar__filter">
+    <div v-if="filterVisible" class="sidebar__filter">
       <v-checkbox
         v-for="(item, index) in filter"
         :key="`${item.key}-${index}`"
@@ -41,6 +41,10 @@ export default {
       return Object
         .entries(filter)
         .map(([key, value]) => ({ key, value }));
+    },
+    filterVisible() {
+      const { filterVisible = false } = this.$route.meta;
+      return !!this.query || filterVisible;
     },
   },
   methods: {
