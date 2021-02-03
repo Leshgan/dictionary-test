@@ -1,17 +1,18 @@
 <template>
   <div
     class="list__item"
-    @click="showMore = !showMore"
+    :class="{expandable}"
+    @click="expanded = !expanded"
   >
     <div
       class="list__item_first"
-      :class="{'show-more': showMore, 'draggable': draggable}"
+      :class="{expanded, draggable}"
     >
       <span class="list__item_first_burger" v-if="draggable">&#9776;</span>
       <span class="list__item_first_word">{{ word.word }}</span>
       <span class="list__item_first_part_of_speech">{{ speechPart }}</span>
       <span class="list__item_first_value">
-        <p v-for="value in description" :key="value">{{ value }}</p>
+        <span v-for="value in description" :key="value">{{ value }}</span>
       </span>
       <span class="list__item_first_icon">
         <button
@@ -24,8 +25,7 @@
       </span>
     </div>
     <span
-      v-show="showMore"
-      class=x
+      v-show="expanded"
     >
       {{ word.description }}
     </span>
@@ -53,7 +53,7 @@ export default {
   components: { StarIcon, StarSelectedIcon },
   data() {
     return {
-      showMore: false,
+      expanded: false,
     };
   },
   computed: {
@@ -67,10 +67,15 @@ export default {
       if (!this.word.defs) {
         return null;
       }
-      return this.showMore && this.word.defs.length > 1
+      return this.expanded && this.word.defs.length > 1
         ? this.word.defs.map(def => def.split('\t'))
           .map(([tag, d]) => [transformTag(tag), d].join(', '))
         : [this.word.defs[0].split('\t')[1]];
+    },
+    expandable() {
+      return this.word.defs
+        && Array.isArray(this.word.defs)
+        && this.word.defs.length > 1;
     },
   },
   methods: {

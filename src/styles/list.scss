@@ -35,6 +35,10 @@
         overflow: hidden;
         text-overflow: ellipsis;
         line-height: 20px;
+
+        & span {
+          display: block;
+        }
       }
 
       &_icon {
@@ -73,6 +77,10 @@
       cursor: pointer;
       overflow: hidden;
       outline: none;
+    }
+
+    &.expandable {
+      cursor: pointer;
     }
   }
 }
