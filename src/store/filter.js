@@ -1,5 +1,5 @@
 import { SET, getBoolFromLocalStorage, getStringFromLocalStorage } from '@/utils/store';
-import { filterWords, searchWord, sortWords } from '@/utils';
+import { filterWords, sortWords } from '@/utils';
 import { getWords } from '@/services/api';
 
 const state = () => ({
@@ -11,16 +11,7 @@ const state = () => ({
   },
 });
 
-const getters = {
-  favorites: (s, _getters, rootState) => {
-    const { query, filter: filt } = s;
-    let { favorites } = rootState.favorites;
-    if (query) {
-      favorites = filterWords(searchWord(query, favorites), filt);
-    }
-    return favorites;
-  },
-};
+const getters = {};
 
 const mutations = {
   SET,
