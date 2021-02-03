@@ -23,5 +23,9 @@ nav {
     & .star-icon {
       margin: 0 5px;
     }
+
+    &.link-active {
+      text-decoration: underline;
+    }
   }
 }
