@@ -1,5 +1,4 @@
 import 'reset-css';
-import './services/axios';
 import './styles/style.scss';
 import Vue from 'vue';
 // eslint-disable-next-line sort-imports
