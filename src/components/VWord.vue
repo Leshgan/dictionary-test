@@ -19,8 +19,7 @@
           class="list__item_star-button"
           @click.stop="toggle(word)"
         >
-          <star-icon v-if="!inFavorites(word)" class="icon star-icon" />
-          <star-selected-icon v-else class="icon star-icon" />
+          <v-star :active="inFavorites(word)" />
         </button>
       </span>
     </div>
@@ -34,8 +33,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import StarIcon from '@/assets/star.svg';
-import StarSelectedIcon from '@/assets/star-selected.svg';
+import VStar from '@/components/VStar';
 import { transformTag } from '@/utils';
 
 export default {
@@ -50,7 +48,7 @@ export default {
       default: false,
     },
   },
-  components: { StarIcon, StarSelectedIcon },
+  components: { VStar },
   data() {
     return {
       expanded: false,

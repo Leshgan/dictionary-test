@@ -5,7 +5,7 @@
         <span>Word Keeper</span>
       </router-link>
       <router-link :to="{ name: 'Favorites' }">
-        <star-icon class="icon star-icon"/>
+        <v-star active />
         Starred Words
       </router-link>
     </nav>
@@ -13,12 +13,10 @@
 </template>
 
 <script>
-import StarIcon from '@/assets/star-selected.svg';
+import VStar from '@/components/VStar';
 
 export default {
   name: 'BaseHeader',
-  components: {
-    StarIcon,
-  },
+  components: { VStar },
 };
 </script>
