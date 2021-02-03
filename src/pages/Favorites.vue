@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="favorites">
     <h1 class="main-title">Starred Words</h1>
     <div class="list">
       <draggable
